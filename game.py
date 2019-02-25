@@ -8,15 +8,22 @@ ananas = pygame.image.load('imagine/pineapple.png')
 ananas = pygame.transform.scale(ananas, (ananas.get_width()//80, ananas.get_height()//80))
 trash = pygame.image.load('imagine/trash.png')
 trash = pygame.transform.scale(trash, (trash.get_width()//40, trash.get_height()//40))
-walkRight = [pygame.image.load('imagine/player1_right1.png'), pygame.image.load('imagine/player1_right2.png'),
-             pygame.image.load('imagine/player1_right3.png'), pygame.image.load('imagine/player1_right4.png'),
-             pygame.image.load('imagine/player1_right5.png'), pygame.image.load('imagine/player1_right6.png'),
-             pygame.image.load('imagine/player1_right7.png'), pygame.image.load('imagine/player1_right8.png')]
-walkLeft = [pygame.image.load('imagine/1monkey.png'), pygame.image.load('imagine/player1_left2.png'),
-            pygame.image.load('imagine/player1_left3.png'), pygame.image.load('imagine/player1_left4.png'),
-            pygame.image.load('imagine/player1_left5.png'), pygame.image.load('imagine/player1_left6.png'),
-            pygame.image.load('imagine/player1_left7.png'), pygame.image.load('imagine/player1_left8.png'),]
-StandPlayer = [pygame.image.load('imagine/player1_left1.png'),pygame.image.load('imagine/player1_right1.png')]
+walkRight = [pygame.transform.flip(pygame.image.load('imagine/1monkey.png'), 1, 0), pygame.transform.flip(pygame.image.load('imagine/2monkey.png'), 1, 0),
+             pygame.transform.flip(pygame.image.load('imagine/3monkey.png'), 1, 0), pygame.transform.flip(pygame.image.load('imagine/4monkey.png'), 1, 0),
+             pygame.transform.flip(pygame.image.load('imagine/5monkey.png'), 1, 0), pygame.transform.flip(pygame.image.load('imagine/6monkey.png'), 1, 0),
+             pygame.transform.flip(pygame.image.load('imagine/7monkey.png'), 1, 0), pygame.transform.flip(pygame.image.load('imagine/8monkey.png'), 1, 0),
+             pygame.transform.flip(pygame.image.load('imagine/9monkey.png'), 1, 0), pygame.transform.flip(pygame.image.load('imagine/10monkey.png'), 1, 0),
+             pygame.transform.flip(pygame.image.load('imagine/11monkey.png'), 1, 0), pygame.transform.flip(pygame.image.load('imagine/12monkey.png'), 1, 0),
+             pygame.transform.flip(pygame.image.load('imagine/13monkey.png'), 1, 0), pygame.transform.flip(pygame.image.load('imagine/14monkey.png'), 1, 0)]
+walkLeft = [pygame.image.load('imagine/1monkey.png'), pygame.image.load('imagine/2monkey.png'),
+            pygame.image.load('imagine/3monkey.png'), pygame.image.load('imagine/4monkey.png'),
+            pygame.image.load('imagine/5monkey.png'), pygame.image.load('imagine/6monkey.png'),
+            pygame.image.load('imagine/7monkey.png'), pygame.image.load('imagine/8monkey.png'),
+            pygame.image.load('imagine/9monkey.png'), pygame.image.load('imagine/10monkey.png'),
+            pygame.image.load('imagine/11monkey.png'), pygame.image.load('imagine/12monkey.png'),
+            pygame.image.load('imagine/13monkey.png'), pygame.image.load('imagine/14monkey.png')]
+
+StandPlayer = [pygame.image.load('imagine/1monkey.png'), pygame.transform.flip(pygame.image.load('imagine/1monkey.png'),1,0)]
 bg = pygame.image.load('imagine/back.png')
 w = 900
 h = 473
@@ -24,8 +31,8 @@ floor = h - 10
 
 class player:
     def __init__(self):
-        self.width = 56 - 5
-        self.height = 91 - 5
+        self.width = 80
+        self.height = 66
         self.speed = 5
         self.x = 50
         self.y = floor - self.height
@@ -71,7 +78,7 @@ def drawWin():
     #    pygame.draw.rect(win, (0, 200, 200), (i.x, i.y, i.width, i.height))
     for i in balls:
         win.blit(i.color, (i.x, i.y))
-    if animCount >= 40:
+    if animCount >= 70:
         animCount = 0
     if right:
         win.blit(walkRight[animCount // 5], (player1.x, player1.y))
